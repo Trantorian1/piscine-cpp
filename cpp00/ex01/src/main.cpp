@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:36:48 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/24 15:10:33 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/24 21:20:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,14 +196,17 @@ namespace {
 		std::cout << pb << '\n'
 				  << "index: ";
 		std::cin >> index;
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
 		if (std::cin.fail())
 		{
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			std::cout << constant::error::INPUT << std::endl;
 			return;
 		} else if(index >= PhoneBook::CAPACITY) {
 			std::cout << constant::error::INPUT << std::endl;
+			return;
 		}
 
 		std::cout << pb[index] << std::endl;
@@ -213,15 +216,6 @@ namespace {
 int	main(void) {
 	PhoneBook	pb;
 	std::string	userInput;
-
-	Contact		trantorian(
-		"0683421345",
-		"Magnifico",
-		"Grandissimo",
-		"The Mule",
-		"Is a mutant"
-	);
-	pb.addContact(trantorian);
 
 	while (true) {
 		std::cout << constant::prompt::BASE_PROMPT;
