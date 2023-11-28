@@ -1,0 +1,5 @@
+-std=c++98
+-I../vendor
+-Wall
+-Wextra
+-Werror
