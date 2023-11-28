@@ -59,17 +59,17 @@ BIN        = cpp01ex3
 
 # =================================[ BINARY ]================================= #
 
-all: hooks
+all:
+	@echo "$(YELLOW)$(BOLD)>> Pre-Hook$(RESET)"
+	@$(HOOK_PRE)
+	@echo "$(YELLOW)$(BOLD)<< Pre-Hook$(RESET)"
+
 	@printf "$(BLUE_BG)$(WHITE)$(BOLD)[ Building ]$(RESET)$(WHITE) $(BIN)\n"
 	@make --silent $(BIN)
 
-
-
-hooks:
-	@echo "$(YELLOW)$(BOLD)>> Hooks$(RESET)"
-	@$(HOOK_PRE)
-	@$(shell $(HOOK_POST))
-	@echo "$(YELLOW)$(BOLD)<< Hooks$(RESET)"
+	@echo "$(YELLOW)$(BOLD)>> Post-Hook$(RESET)"
+	@$(HOOK_POST)
+	@echo "$(YELLOW)$(BOLD)<< Post-Hook$(RESET)"
 
 
 
