@@ -55,7 +55,7 @@ SILENCED   =
 C_FLAGS    = -Wall -Wextra -Werror $(SILENCED) $(OPT) $(DEBUG) $(I_FLAGS)
 C_DEPS     = -MM -MP $(I_FLAGS)
 
-BIN        = zombies0
+BIN        = cpp01ex0
 
 # =================================[ BINARY ]================================= #
 
