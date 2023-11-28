@@ -1,6 +1,6 @@
 -std=c++98
--Iinclude
--I../vendor/
+-Iex01/include/
+-Ivendor
 -Wall
 -Wextra
 -Werror

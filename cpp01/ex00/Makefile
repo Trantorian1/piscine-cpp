@@ -29,7 +29,7 @@ WHITE_BG   = \033[47m
 
 # ==================================[ HOOKS ]================================= #
 
-HOOK_PRE   = make --silent -C vendor/libmini
+HOOK_PRE   = make --silent -C ../vendor/libmini/
 HOOK_POST  =
 
 # ==================================[ SETUP ]================================= #
@@ -38,7 +38,7 @@ DIR_BUILD  = .
 DIR_OBJS   = $(DIR_BUILD)/objs
 DIR_DEPS   = $(DIR_BUILD)/deps
 DIR_SRCS   = ./src
-DIR_INCL   = ./include ./vendor/
+DIR_INCL   = ./include ../vendor/
 DIR_BIN    = ./bin
 
 FILES_SRCS = $(shell find . -wholename "$(DIR_SRCS)/*.cpp")
@@ -47,7 +47,7 @@ FILES_DEPS = $(patsubst $(DIR_SRCS)/%.cpp,$(DIR_DEPS)/%.d,$(FILES_SRCS))
 
 OPT        = 
 DEBUG      =
-LIBS       =
+LIBS       = -L../vendor/libmini -lmini
 
 C_COMPILER = g++
 I_FLAGS    = $(foreach dir,$(DIR_INCL),-I$(dir) )
