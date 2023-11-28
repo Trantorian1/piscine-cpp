@@ -12,14 +12,14 @@ Zombie::Zombie(void) : _name("") {
 			  << color::RESET << std::endl;
 }
 
-Zombie::Zombie(std::string name) : _name(name) {
+Zombie::Zombie(const std::string& name) : _name(name) {
 	std::cout << color::GREEN << color::DIM
 			  << '[' << this->_name << ']'
 			  << " was created"
 			  << color::RESET << std::endl;
 }
 
-Zombie::Zombie(Zombie& other) {
+Zombie::Zombie(const Zombie& other) {
 	this->_name = other._name;
 
 	std::cout << color::YELLOW << color::DIM
@@ -44,7 +44,7 @@ Zombie&	Zombie::operator=(Zombie& other) {
 
 // ===============================[ ACCESSORS ]============================== //
 
-std::string	Zombie::getName(void) const {
+const std::string&	Zombie::getName(void) const {
 	return (this->_name);
 }
 

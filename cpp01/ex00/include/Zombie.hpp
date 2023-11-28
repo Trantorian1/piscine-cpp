@@ -6,13 +6,13 @@
 class Zombie {
 	public:
 		Zombie(void);
-		Zombie(std::string name);
-		Zombie(Zombie& other);
+		Zombie(const std::string& name);
+		Zombie(const Zombie& other);
 		~Zombie(void);
 		Zombie&	operator=(Zombie& other);
 
-		std::string	getName(void) const;
-		void		announce(void) const;
+		const std::string&	getName(void) const;
+		void				announce(void) const;
 	private:
 		std::string	_name;
 };
