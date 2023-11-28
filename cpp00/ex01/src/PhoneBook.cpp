@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:14:02 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/24 15:20:27 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/28 15:15:27 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,8 @@ void	PhoneBook::addContact(Contact& newContact) {
 
 bool	PhoneBook::isempty(void) const {
 	return (_size == 0);
+}
+
+unsigned short	PhoneBook::getSize(void) const {
+	return (_size);
 }

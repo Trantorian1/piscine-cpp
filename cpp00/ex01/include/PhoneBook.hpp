@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 10:32:18 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/24 14:32:16 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/28 15:14:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ public:
 
 	const Contact&	operator[](std::size_t index) const;
 
-	void	addContact(Contact& newContact);
-	bool	isempty(void) const;
+	void			addContact(Contact& newContact);
+	bool			isempty(void) const;
+	unsigned short	getSize(void) const;
 
 	static const short 	CAPACITY = 8;
 

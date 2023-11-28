@@ -10,7 +10,6 @@
 int main (int argc, char *argv[])
 {
 	std::string			word;
-	std::size_t			bound = static_cast<std::size_t>(argc);
 	std::ostringstream	stream;
 
 	if (argc < 2)
@@ -19,7 +18,7 @@ int main (int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 
-	for (std::size_t index = 1; index < bound; index++)
+	for (int index = 1; index < argc; index++)
 	{
 		word = argv[index];
 

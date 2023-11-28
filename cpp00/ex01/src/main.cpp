@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:36:48 by marvin            #+#    #+#             */
-/*   Updated: 2023/11/24 21:20:01 by marvin           ###   ########.fr       */
+/*   Updated: 2023/11/28 15:16:59 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,7 +204,7 @@ namespace {
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			std::cout << constant::error::INPUT << std::endl;
 			return;
-		} else if(index >= PhoneBook::CAPACITY) {
+		} else if(index >= pb.getSize() || index >= PhoneBook::CAPACITY) {
 			std::cout << constant::error::INPUT << std::endl;
 			return;
 		}
