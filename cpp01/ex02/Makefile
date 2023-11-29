@@ -49,7 +49,7 @@ OPT        =
 DEBUG      =
 LIBS       =
 
-C_COMPILER = g++
+C_COMPILER = c++
 I_FLAGS    = $(foreach dir,$(DIR_INCL),-I$(dir) )
 SILENCED   = 
 C_FLAGS    = -Wall -Wextra -Werror -std=c++98 $(SILENCED) $(OPT) $(DEBUG) $(I_FLAGS)
