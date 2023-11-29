@@ -1,0 +1,6 @@
+-std=c++98
+-Iex01/include/
+-Ivendor
+-Wall
+-Wextra
+-Werror
