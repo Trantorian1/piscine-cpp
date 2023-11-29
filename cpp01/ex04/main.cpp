@@ -6,6 +6,14 @@
 
 #include "libmini/color.hpp"
 
+void	show_error(std::string msg) {
+	std::cerr << color::RED
+		      << "Error: "
+			  << msg
+		      << color::RESET
+		      << std::endl;
+}
+
 int	main(int argc, char *argv[]) {
 	std::string		fileName;
 	std::string		str_pattern;
@@ -16,11 +24,7 @@ int	main(int argc, char *argv[]) {
 	std::size_t		index;
 
 	if (argc != 4) {
-		std::cerr << color::RED
-			      << "Invalid argument count"
-				  << color::RESET
-				  << std::endl;
-
+		show_error("invalid argument count");
 		return (EXIT_FAILURE);
 	}
 
@@ -29,31 +33,19 @@ int	main(int argc, char *argv[]) {
 	str_replace = argv[3];
 
 	if (fileName.empty() || str_pattern.empty()) {
-		std::cerr << color::RED
-			      << "Empty file name or pattern"
-				  << color::RESET
-				  << std::endl;
-
+		show_error("empty file name or pattern");
 		return (EXIT_FAILURE);
 	}
 
 	file_read.open(fileName.c_str());
 	if (file_read.good() == false) {
-		std::cerr << color::RED
-			      << "Error opening file \"" << fileName << '"'
-				  << color::RESET
-				  << std::endl;
-
+		show_error("Error opening file \"" + fileName + '"');
 		return (EXIT_FAILURE);
 	}
 
 	file_write.open(fileName.append(".replace").c_str());
 	if (file_write.good() == false) {
-		std::cerr << color::RED
-			      << "Error opening file \"" << fileName << '"'
-				  << color::RESET
-				  << std::endl;
-
+		show_error("Error opening file \"" + fileName + '"');
 		return (EXIT_FAILURE);
 	}
 	
