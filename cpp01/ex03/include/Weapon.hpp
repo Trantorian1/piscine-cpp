@@ -16,8 +16,6 @@ public:
 	std::string	getType(void) const;
 	void		setType(const std::string& newType);
 
-	static const Weapon	defaultWeapon;
-
 private:
 	std::string	_type;
 };

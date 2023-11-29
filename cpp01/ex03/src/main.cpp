@@ -1,6 +1,5 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
-#include "libmini/color.hpp"
 
 #include <cstdlib>
 #include <iostream>
@@ -14,6 +13,7 @@ int	main(void) {
 	HumanB	william("William Wallace");
 	HumanA	charles("Charles Martel, 'The Hammer'", warhammer);
 
+	william.attack();
 	william.setWeapon(greatsword);
 
 	saladin.attack();
@@ -29,8 +29,12 @@ int	main(void) {
 	std::cout << "\nInfo\n" 
 		      << saladin << '\n'
 			  << william << '\n'
-			  << charles
+			  << charles << '\n'
 		      << std::endl;
+
+	saladin.attack();
+	william.attack();
+	charles.attack();
 
 	return (EXIT_SUCCESS);
 }

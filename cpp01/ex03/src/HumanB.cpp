@@ -2,6 +2,7 @@
 
 #include "libmini/color.hpp"
 
+#include <cstddef>
 #include <iostream>
 
 // ==============================[ CONTRUCTOR ]============================== //
@@ -47,12 +48,19 @@ void				HumanB::setWeapon(Weapon& newWeapon) {
 // ===============================[ FUNCTIONS ]============================== //
 
 void	HumanB::attack(void) const {
+	std::string	weaponType;
+
+	if (this->_weapon == NULL)
+		weaponType = "bare hands";
+	else
+		weaponType = this->_weapon->getType();
+
 	std::cout << color::WHITE
 		      << this->_name
 			  << color::RED
 			  << " attacks with their "
 			  << color::DIM << color::WHITE
-			  << this->_weapon->getType()
+			  << weaponType
 			  << color::RESET
 			  << std::endl;
 }
