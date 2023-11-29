@@ -13,8 +13,8 @@ public:
 
 	Weapon&	operator=(const Weapon& other);
 
-	std::string	getType(void) const;
-	void		setType(const std::string& newType);
+	const std::string&	getType(void) const;
+	void				setType(const std::string& newType);
 
 private:
 	std::string	_type;
