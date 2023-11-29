@@ -52,7 +52,7 @@ LIBS       =
 C_COMPILER = g++
 I_FLAGS    = $(foreach dir,$(DIR_INCL),-I$(dir) )
 SILENCED   = 
-C_FLAGS    = -Wall -Wextra -Werror $(SILENCED) $(OPT) $(DEBUG) $(I_FLAGS)
+C_FLAGS    = -Wall -Wextra -Werror -std=c++98 $(SILENCED) $(OPT) $(DEBUG) $(I_FLAGS)
 C_DEPS     = -MM -MP $(I_FLAGS)
 
 BIN        = cpp01ex2
