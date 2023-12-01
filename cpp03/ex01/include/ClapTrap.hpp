@@ -8,7 +8,7 @@ class ClapTrap {
 public:
 	ClapTrap(const std::string& name);
 	ClapTrap(const ClapTrap& other);
-	~ClapTrap(void);
+	virtual ~ClapTrap(void);
 
 	ClapTrap&	operator=(const ClapTrap& other);
 
@@ -25,21 +25,24 @@ public:
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 
-private:
+protected:
 	ClapTrap(void);
 
-	void	init(
+	unsigned int	_hitPoints;
+	unsigned int	_energyPoints;
+	unsigned int	_attackDamage;
+
+	bool	tryAct(void);
+
+private:
+	void init(
 		const std::string& name,
 		unsigned int hitPoints,
 		unsigned int energypoints,
 		unsigned int attackDamage
 	);
-	bool	tryAct(void);
 
 	std::string		_name;
-	unsigned int	_hitPoints;
-	unsigned int	_energyPoints;
-	unsigned int	_attackDamage;
 
 	static const unsigned int	BASE_HP;
 	static const unsigned int	BASE_EP;
