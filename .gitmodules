@@ -10,3 +10,6 @@
 [submodule "cpp03/vendor/libmini"]
 	path = cpp03/vendor/libmini
 	url = https://github.com/Trantorian1/libmini.git
+[submodule "cpp04/vendor/libmini"]
+	path = cpp04/vendor/libmini
+	url = https://github.com/Trantorian1/libmini.git
