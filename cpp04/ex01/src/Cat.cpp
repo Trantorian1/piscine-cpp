@@ -9,7 +9,7 @@ const std::string	Cat::TYPE = "Cat";
 
 // ==============================[ CONSTRUCTOR ]============================= //
 
-Cat::Cat(void) : Animal(Cat::TYPE) {
+Cat::Cat(void) : Animal(Cat::TYPE), _brain(new Brain()) {
 	std::cout << color::DIM << color::WHITE
 		      << "Cat "
 		      << color::GREEN
@@ -17,7 +17,7 @@ Cat::Cat(void) : Animal(Cat::TYPE) {
 			  << color::RESET << std::endl;
 }
 
-Cat::Cat(const Cat& other) : Animal(other) {
+Cat::Cat(const Cat& other) : Animal(other), _brain(new Brain(*other._brain)) {
 	std::cout << color::DIM << color::WHITE
 		      << "Cat "
 		      << color::GREEN
@@ -26,11 +26,18 @@ Cat::Cat(const Cat& other) : Animal(other) {
 }
 
 Cat::~Cat(void) {
+	delete (this->_brain);
 	std::cout << color::DIM << color::WHITE
 		      << "Cat "
 		      << color::RED
 		      << "[" << std::hex << this << "] was destroyed"
 			  << color::RESET << std::endl;
+}
+
+// ===============================[ ACCESSORS ]============================== //
+
+const Brain&	Cat::getBrain(void) const {
+	return (*this->_brain);
 }
 
 // ===============================[ FUNCTIONS ]============================== //

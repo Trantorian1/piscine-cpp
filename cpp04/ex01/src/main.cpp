@@ -1,51 +1,40 @@
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
+#include "Brain.hpp"
 #include "libmini/pointer.hpp"
 
+#include <cstddef>
 #include <cstdlib>
 #include <iostream>
+#include <sstream>
 
 typedef mini::UniquePtr<Animal> AnimalPtr;
-typedef mini::UniquePtr<WrongAnimal> WAnimalPtr;
 
 int	main(void) {
-	AnimalPtr	animal   = mini::UniquePtr<Animal>(new Animal("bear"));
-	AnimalPtr	dog      = mini::UniquePtr<Animal>(new Dog());
-	AnimalPtr	cat      = mini::UniquePtr<Animal>(new Cat());
-	WAnimalPtr	wrongCat = mini::UniquePtr<WrongAnimal>(new WrongCat());
-	AnimalPtr	dogCpy   = mini::UniquePtr<Animal>(new Dog(*(Dog *)dog.getPtr()));
-	AnimalPtr	catCpy   = mini::UniquePtr<Animal>(new Cat(*(Cat *)cat.getPtr()));
+	Animal*	herd[10];
 
-	std::cout << "\n>> Animals" << std::endl;
-	std::cout << animal << ": " << *animal << std::endl;
-	std::cout << dog << ": " << *dog << std::endl;
-	std::cout << cat << ": " << *cat << std::endl;
-	std::cout << wrongCat << ": " << *wrongCat << std::endl;
-	std::cout << dogCpy << ": " << *dogCpy << std::endl;
-	std::cout << catCpy << ": " << *catCpy << std::endl;
+	for (std::size_t index = 0; index < 10; index++) {
+		if (index % 2 == 0)
+			herd[index] = new Dog();
+		else
+			herd[index] = new Cat();
+	}
 
-	std::cout << "\n>> MakeSound" << std::endl;
+	std::cout << "\n>> Herd" << std::endl;
+	for (std::size_t index = 0; index < 10; index++) {
+		std::cout << index << ": " << *herd[index] << std::endl;
+	}
 
-	std::cout << "animal: " << std::endl;
-	animal->makeSound();
+	std::cout << "\n>> Sound" << std::endl;
+	for (std::size_t index = 0; index < 10; index++) {
+		std::cout << index << ": ";
+		herd[index]->makeSound();
+	}
 
-	std::cout << "dog: " << std::endl;
-	dog->makeSound();
-
-	std::cout << "dog copy: " << std::endl;
-	dogCpy->makeSound();
-
-	std::cout << "cat: " << std::endl;
-	cat->makeSound();
-
-	std::cout << "cat copy: " << std::endl;
-	catCpy->makeSound();
-
-	std::cout << "wrong cat: " << std::endl;
-	wrongCat->makeSound();
+	for (std::size_t index = 0; index < 10; index++) {
+		delete (herd[index]);
+	}
 
 	return (EXIT_SUCCESS);
 }
