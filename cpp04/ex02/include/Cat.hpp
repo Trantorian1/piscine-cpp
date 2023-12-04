@@ -10,8 +10,6 @@ public:
 	Cat(const Cat& other);
 	virtual	~Cat(void);
 
-	Cat	operator=(const Cat& other) const;
-
 	virtual void	makeSound(void) const;
 	const Brain&	getBrain(void) const;
 
@@ -19,6 +17,8 @@ public:
 
 private:
 	const Brain	*_brain;
+
+	Cat	operator=(const Cat& other) const;
 };
 
 #endif

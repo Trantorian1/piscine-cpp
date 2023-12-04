@@ -1,6 +1,8 @@
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
+# include "libmini/define.hpp"
+
 # include <string>
 # include <ostream>
 
@@ -18,7 +20,9 @@ protected:
 	const std::string	_type;
 
 private:
-	AAnimal(void);
+	AAnimal(void) DELETE;
+
+	AAnimal&	operator=(const AAnimal& other) const;
 };
 
 std::ostream&	operator<<(std::ostream& os, const AAnimal& animal);

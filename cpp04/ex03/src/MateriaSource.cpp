@@ -62,6 +62,9 @@ bool		MateriaSource::hasSpaceLeft(void) const {
 bool		MateriaSource::knows(const AMateria* materia) const {
 	std::string	type;
 
+	if (materia == NULL)
+		return (false);
+
 	type = materia->getType();
 	for (unsigned char index = 0; index < this->_size; index++) {
 		if (type == this->_learned[index])

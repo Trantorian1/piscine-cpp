@@ -5,7 +5,7 @@
 
 // ==============================[ CONSTRUCTOR ]============================= //
 
-Animal::Animal(void) {
+Animal::Animal(const std::string& type) : _type(type) {
 	std::cout << color::DIM  << color::WHITE
 		      << "Animal "
 		      << color::GREEN
@@ -13,7 +13,7 @@ Animal::Animal(void) {
 			  << color::RESET << std::endl;
 }
 
-Animal::Animal(const std::string& type) : _type(type) {
+Animal::Animal(const Animal& other) : _type(other._type) {
 	std::cout << color::DIM  << color::WHITE
 		      << "Animal "
 		      << color::GREEN
@@ -21,7 +21,7 @@ Animal::Animal(const std::string& type) : _type(type) {
 			  << color::RESET << std::endl;
 }
 
-Animal::Animal(const Animal& other) : _type(other._type) {
+Animal::~Animal(void) {
 	std::cout << color::DIM << color::WHITE
 		      << "Animal "
 		      << color::RED
@@ -29,13 +29,7 @@ Animal::Animal(const Animal& other) : _type(other._type) {
 			  << color::RESET << std::endl;
 }
 
-Animal::~Animal(void) {}
-
 // ===============================[ OPERATORS ]============================== //
-
-Animal	Animal::operator=(const Animal& other) const {
-	return (Animal(other._type));
-}
 
 std::ostream&	operator<<(std::ostream& os, const Animal& animal) {
 	os << "{type:\"" << animal.getType()  << "\"}";

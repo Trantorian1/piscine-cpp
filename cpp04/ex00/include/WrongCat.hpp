@@ -9,11 +9,12 @@ public:
 	WrongCat(const WrongCat& other);
 	virtual	~WrongCat(void);
 
-	WrongCat	operator=(const WrongCat& other) const;
-
 	void	makeSound(void) const;
 
 	static const std::string	TYPE;
+
+private:
+	WrongCat	operator=(const WrongCat& other) const;
 };
 
 #endif

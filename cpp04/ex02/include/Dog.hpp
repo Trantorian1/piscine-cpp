@@ -10,8 +10,6 @@ public:
 	Dog(const Dog& other);
 	virtual	~Dog(void);
 
-	Dog	operator=(const Dog& other) const;
-
 	virtual void	makeSound(void) const;
 	const Brain&	getBrain(void) const;
 
@@ -19,6 +17,8 @@ public:
 
 private:
 	const Brain	*_brain;
+
+	Dog	operator=(const Dog& other) const;
 };
 
 #endif

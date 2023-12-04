@@ -9,14 +9,13 @@
 #include <iostream>
 #include <sstream>
 
-typedef mini::UniquePtr<Animal> AnimalPtr;
-
 int	main(void) {
 	Animal*	herd[10];
+	Dog		sample;
 
 	for (std::size_t index = 0; index < 10; index++) {
 		if (index % 2 == 0)
-			herd[index] = new Dog();
+			herd[index] = new Dog(sample);
 		else
 			herd[index] = new Cat();
 	}

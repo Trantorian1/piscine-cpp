@@ -5,7 +5,7 @@
 
 // ==============================[ CONSTRUCTOR ]============================= //
 
-AAnimal::AAnimal(void) {
+AAnimal::AAnimal(const std::string& type) : _type(type) {
 	std::cout << color::DIM  << color::WHITE
 		      << "Animal "
 		      << color::GREEN
@@ -13,7 +13,7 @@ AAnimal::AAnimal(void) {
 			  << color::RESET << std::endl;
 }
 
-AAnimal::AAnimal(const std::string& type) : _type(type) {
+AAnimal::AAnimal(const AAnimal& other) : _type(other._type) {
 	std::cout << color::DIM  << color::WHITE
 		      << "Animal "
 		      << color::GREEN
@@ -21,15 +21,13 @@ AAnimal::AAnimal(const std::string& type) : _type(type) {
 			  << color::RESET << std::endl;
 }
 
-AAnimal::AAnimal(const AAnimal& other) : _type(other._type) {
+AAnimal::~AAnimal(void) {
 	std::cout << color::DIM << color::WHITE
 		      << "Animal "
 		      << color::RED
 		      << "[" << std::hex << this << "] was destroyed"
 			  << color::RESET << std::endl;
 }
-
-AAnimal::~AAnimal(void) {}
 
 // ===============================[ OPERATORS ]============================== //
 

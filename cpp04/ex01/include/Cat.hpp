@@ -10,14 +10,14 @@ public:
 	Cat(const Cat& other);
 	virtual	~Cat(void);
 
-	Cat	operator=(const Cat& other) const;
-
 	virtual void	makeSound(void) const;
 	const Brain&	getBrain(void) const;
 
 	static const std::string	TYPE;
 
 private:
+	Cat&	operator=(const Cat& other) const;
+
 	const Brain	*_brain;
 };
 

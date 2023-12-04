@@ -10,14 +10,14 @@ public:
 	Dog(const Dog& other);
 	virtual	~Dog(void);
 
-	Dog	operator=(const Dog& other) const;
-
 	virtual void	makeSound(void) const;
 	const Brain&	getBrain(void) const;
 
 	static const std::string	TYPE;
 
 private:
+	Dog&	operator=(const Dog& other) const;
+
 	const Brain	*_brain;
 };
 
